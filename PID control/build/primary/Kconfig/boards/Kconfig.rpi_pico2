@@ -1,0 +1,2 @@
+# Load board Kconfig descriptions.
+osource "/Users/anuj/pico/deps/zephyr/boards/raspberrypi/rpi_pico2/Kconfig.rpi_pico2"

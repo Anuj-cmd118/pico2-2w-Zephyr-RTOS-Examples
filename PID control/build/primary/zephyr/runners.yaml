@@ -1,0 +1,44 @@
+# Available runners configured by board.cmake.
+runners:
+- openocd
+- jlink
+- uf2
+
+# Default flash runner if --runner is not given.
+flash-runner: openocd
+
+# Default debug runner if --runner is not given.
+debug-runner: openocd
+
+# Common runner configuration values.
+config:
+  board_dir: /Users/anuj/pico/deps/zephyr/boards/raspberrypi/rpi_pico2
+  # Build outputs:
+  elf_file: zephyr.elf
+  hex_file: zephyr.hex
+  bin_file: zephyr.bin
+  uf2_file: zephyr.uf2
+  # Host tools:
+  gdb: /Users/anuj/untitled folder/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb
+  openocd: /opt/homebrew/bin/openocd
+  openocd_search:
+    - /Users/anuj/untitled folder/zephyr-sdk-0.17.4/sysroots/arm64-pokysdk-linux/usr/share/openocd/scripts
+
+# Runner specific arguments
+args:
+  openocd:
+    - --cmd-load
+    - flash write_image erase
+    - --cmd-verify
+    - verify_image
+    - --cmd-pre-init
+    - source [find interface/cmsis-dap.cfg]
+    - --cmd-pre-init
+    - source [find target/rp2350.cfg]
+    - --cmd-pre-init
+    - set_adapter_speed_if_not_set 5000
+  jlink:
+    - --dt-flash=y
+    - --device=RP2350_M33_0
+  uf2:
+    - --board-id=RP2350

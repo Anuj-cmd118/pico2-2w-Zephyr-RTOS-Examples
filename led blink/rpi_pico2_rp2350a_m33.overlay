@@ -1,0 +1,22 @@
+/ {
+    aliases {
+        pwm-0 = &pwm;
+    };
+};
+
+/* Enable PWM */
+&pwm {
+    status = "okay";
+    pinctrl-0 = <&pwm_ch7b_default>;
+    pinctrl-names = "default";
+    divider-int-0 = <255>;
+};
+
+/* Configure PWM pinctrl for GP15 (PWM Channel 7B) */
+&pinctrl {
+    pwm_ch7b_default: pwm_ch7b_default {
+        group1 {
+            pinmux = <PWM_7B_P15>;
+        };
+    };
+};

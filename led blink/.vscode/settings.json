@@ -1,0 +1,18 @@
+{
+    "zephyr-workbench.westWorkspace": "/Users/anuj/pico",
+    "zephyr-workbench.board": "rpi_pico2/rp2350a/m33",
+    "zephyr-workbench.toolchain": "zephyr_sdk",
+    "zephyr-workbench.sdk": "/Users/anuj/untitled folder/zephyr-sdk-0.17.4",
+    "zephyr-workbench.build.pristine": "auto",
+    "zephyr-workbench.build.configurations": [
+        {
+            "name": "primary",
+            "board": "rpi_pico2/rp2350a/m33",
+            "active": "true"
+        }
+    ],
+    "cmake.configureOnOpen": false,
+    "cmake.enableAutomaticKitScan": false,
+    "C_Cpp.default.compilerPath": "/Users/anuj/untitled folder/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/primary/compile_commands.json"
+}

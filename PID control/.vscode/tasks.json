@@ -1,0 +1,190 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "West Build",
+      "type": "zephyr-workbench",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-p ${config:zephyr-workbench.build.pristine}",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "West Rebuild",
+      "type": "zephyr-workbench",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-p always",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "Gui config",
+      "type": "zephyr-workbench",
+      "problemMatcher": [],
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-t guiconfig",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "Menuconfig",
+      "type": "zephyr-workbench",
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-t menuconfig",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "Harden Config",
+      "type": "zephyr-workbench",
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-t hardenconfig",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "Init SPDX",
+      "type": "zephyr-workbench",
+      "problemMatcher": [],
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "spdx",
+        "--init",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "West Flash",
+      "type": "zephyr-workbench",
+      "problemMatcher": [],
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "flash",
+        "${input:west.runner}",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "West RAM Report",
+      "type": "zephyr-workbench",
+      "problemMatcher": [],
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-t ram_report",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "West ROM Report",
+      "type": "zephyr-workbench",
+      "problemMatcher": [],
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-t rom_report",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    },
+    {
+      "label": "West Puncover",
+      "type": "zephyr-workbench",
+      "problemMatcher": [],
+      "command": "west",
+      "config": "primary",
+      "args": [
+        "build",
+        "-t puncover",
+        "--board ${config:zephyr-workbench.build.configurations.0.board}",
+        "--build-dir \"${workspaceFolder}/build/${config:zephyr-workbench.build.configurations.0.name}\""
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "west.runner",
+      "type": "pickString",
+      "description": "Override default runner. Runners can flash and/or debug Zephyr programs.",
+      "options": [
+        "",
+        "--runner arc-nsim",
+        "--runner blackmagicprobe",
+        "--runner bossac",
+        "--runner canopen_program",
+        "--runner dediprog",
+        "--runner dfu-util",
+        "--runner esp32",
+        "--runner ezflashcli",
+        "--runner gd32isp",
+        "--runner hifive1",
+        "--runner intel_adsp",
+        "--runner intel_cyclonev",
+        "--runner jlink",
+        "--runner linkserver",
+        "--runner mdb-hw",
+        "--runner mdb-nsim",
+        "--runner misc-flasher",
+        "--runner nios2",
+        "--runner nrfjprog",
+        "--runner nrfutil",
+        "--runner nsim",
+        "--runner nxp_s32dbg",
+        "--runner openocd",
+        "--runner pyocd",
+        "--runner qemu",
+        "--runner renode-robot",
+        "--runner renode",
+        "--runner silabs_commander",
+        "--runner spi_burn",
+        "--runner stm32cubeprogrammer",
+        "--runner stm32flash",
+        "--runner teensy",
+        "--runner trace32",
+        "--runner uf2",
+        "--runner xtensa"
+      ],
+      "default": ""
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+"cmsis":"/Users/anuj/pico/deps/modules/hal/cmsis":"${ZEPHYR_CMSIS_CMAKE_DIR}"
+"cmsis-dsp":"/Users/anuj/pico/deps/modules/lib/cmsis-dsp":"${ZEPHYR_CMSIS_DSP_CMAKE_DIR}"
+"cmsis_6":"/Users/anuj/pico/deps/modules/hal/cmsis_6":"${ZEPHYR_CMSIS_6_CMAKE_DIR}"
+"hal_rpi_pico":"/Users/anuj/pico/deps/modules/hal/rpi_pico":"${ZEPHYR_HAL_RPI_PICO_CMAKE_DIR}"
+"percepio":"/Users/anuj/pico/deps/modules/debug/percepio":"${ZEPHYR_PERCEPIO_CMAKE_DIR}"
+"picolibc":"/Users/anuj/pico/deps/modules/lib/picolibc":"/Users/anuj/pico/deps/modules/lib/picolibc"
+"segger":"/Users/anuj/pico/deps/modules/debug/segger":"${ZEPHYR_SEGGER_CMAKE_DIR}"

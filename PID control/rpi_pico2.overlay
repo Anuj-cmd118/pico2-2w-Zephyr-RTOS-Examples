@@ -1,0 +1,83 @@
+
+/*
+ * Pin Connections:
+ * ADC0 (GPIO26) - Voltage Sensor Input
+ * ADC1 (GPIO27) - Current Sensor Input
+ * GPIO16        - Relay Control Output
+ * GPIO4 (SDA)   - I2C0 Data for SSD1306
+ * GPIO5 (SCL)   - I2C0 Clock for SSD1306
+ */
+
+/ {
+    aliases {
+        relay = &relay_output;
+    };
+
+    relay_output: relay-output {
+        compatible = "gpio-leds";
+        relay: relay_0 {
+            gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+            label = "Motor Relay";
+        };
+    };
+};
+
+&adc {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    channel@0 {
+        reg = <0>;
+        zephyr,gain = "ADC_GAIN_1";
+        zephyr,reference = "ADC_REF_INTERNAL";
+        zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+        zephyr,resolution = <12>;
+    };
+
+    channel@1 {
+        reg = <1>;
+        zephyr,gain = "ADC_GAIN_1";
+        zephyr,reference = "ADC_REF_INTERNAL";
+        zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+        zephyr,resolution = <12>;
+    };
+};
+
+&i2c0 {
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-names = "default";
+
+    ssd1306: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        prechargep = <0xf1>;
+    };
+};
+
+&pinctrl {
+    i2c0_default: i2c0_default {
+        group1 {
+            pinmux = <I2C0_SDA_P4>, <I2C0_SCL_P5>;
+            input-enable;
+            input-schmitt-enable;
+        };
+    };
+};
+
+&gpio0 {
+    status = "okay";
+};
+
+/* USB for debug console (optional) */
+&usbd {
+    status = "okay";
+};
