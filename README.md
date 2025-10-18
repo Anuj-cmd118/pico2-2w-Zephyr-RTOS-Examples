@@ -9,13 +9,12 @@ Each folder contains both the **source code** and **prebuilt firmware (`.uf2`)**
 
 ## Contents
 
-| Example | Description | Prebuilt Firmware |
-|----------|--------------|-------------------|
-| `blinky/` | Basic Zephyr app demonstrating GPIO toggling 
-Note: The default Zephyr “blinky” sample targets the on-board LED of the Pico 2, which is currently not directly accessible through Zephyr’s GPIO API on the pico2w (the pin is controlled differently on the RP2350).
-This custom example instead drives an external LED connected to GPIO 15, | ✅ `blinky/build/zephyr/zephyr.uf2` |
-| `PID control/` | Closed-loop control using Zephyr threads and timing APIs | ✅ `PID control/build/primary/zephyr/zephyr.uf2` |
-| *(more examples Coming soon)* | Networking, sensors, and advanced RTOS concepts | 🚧 Coming updates |
+| Example | Description | Prebuilt Firmware | Notes |
+|----------|--------------|-------------------|-------|
+| `blinky/` | Basic Zephyr app demonstrating GPIO toggling | ✅ `blinky/build/zephyr/zephyr.uf2` | Uses **GPIO 15** for external LED. The default on-board LED is not accessible via Zephyr on the Pico 2W. |
+| `PID control/` | Closed-loop control using Zephyr threads and timing APIs | ✅ `PID control/build/primary/zephyr/zephyr.uf2` | **Pins Used:** ADC input on **GPIO 26 (ADC0)**, PWM output on **GPIO 15**, relay/control pin on **GPIO 16**. **Output Verification:** Connect PWM output to an oscilloscope or function generator to observe waveform and verify PID response. |
+| *(more examples coming soon)* | Networking, sensors, and advanced RTOS concepts | 🚧 Coming updates | Will include Wi-Fi, sensor integration, and advanced RTOS experiments. |
+
 
 ---
 
