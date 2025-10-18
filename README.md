@@ -1,6 +1,6 @@
 #  Zephyr RTOS Examples for Raspberry Pi Pico 2 / Pico 2W
 
-This repository is a growing collection of **Zephyr RTOS projects and experiments** for the **Raspberry Pi Pico 2** and **Pico W**.  
+This repository is a growing collection of **Zephyr RTOS projects and experiments** for the **Raspberry Pi Pico 2** and **Pico 2W**.  
 It’s designed to help **students, hobbyists, and embedded developers** learn Zephyr RTOS concepts through **practical, ready-to-run examples**.
 
 Each folder contains both the **source code** and **prebuilt firmware (`.uf2`)** files, so you can start experimenting instantly — even without setting up the full build environment.
@@ -11,9 +11,9 @@ Each folder contains both the **source code** and **prebuilt firmware (`.uf2`)**
 
 | Example | Description | Prebuilt Firmware |
 |----------|--------------|-------------------|
-| `led blink/` | Basic Zephyr app demonstrating GPIO toggling | ✅ `led blink/build/zephyr/zephyr.uf2` |
+| `blinky/` | Basic Zephyr app demonstrating GPIO toggling | ✅ `blinky/build/zephyr/zephyr.uf2` |
 | `PID control/` | Closed-loop control using Zephyr threads and timing APIs | ✅ `PID control/build/primary/zephyr/zephyr.uf2` |
-| *(more examples coming soon)* | Networking, sensors, and advanced RTOS concepts | 🚧 Coming updates |
+| *(more examples Coming soon)* | Networking, sensors, and advanced RTOS concepts | 🚧 Coming updates |
 
 ---
 
