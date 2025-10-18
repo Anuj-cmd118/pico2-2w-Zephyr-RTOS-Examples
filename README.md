@@ -11,7 +11,8 @@ Each folder contains both the **source code** and **prebuilt firmware (`.uf2`)**
 
 | Example | Description | Prebuilt Firmware |
 |----------|--------------|-------------------|
-| `blinky/` | Basic Zephyr app demonstrating GPIO toggling | ✅ `blinky/build/zephyr/zephyr.uf2` |
+| `blinky/` | Basic Zephyr app demonstrating GPIO toggling Note: The default Zephyr “blinky” sample targets the on-board LED of the Pico 2, which is currently not directly accessible through Zephyr’s GPIO API (the pin is controlled differently on the RP2350).
+This custom example instead drives an external LED connected to GPIO 15, | ✅ `blinky/build/zephyr/zephyr.uf2` |
 | `PID control/` | Closed-loop control using Zephyr threads and timing APIs | ✅ `PID control/build/primary/zephyr/zephyr.uf2` |
 | *(more examples Coming soon)* | Networking, sensors, and advanced RTOS concepts | 🚧 Coming updates |
 
