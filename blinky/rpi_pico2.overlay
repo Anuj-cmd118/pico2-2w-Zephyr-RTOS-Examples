@@ -1,0 +1,9 @@
+/ {
+    aliases {
+        led0 = &ext_led;
+    };
+
+    ext_led: led_0 {
+        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+    };
+};

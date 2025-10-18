@@ -1,0 +1,5 @@
+west:
+  command: /Users/anuj/.zinstaller/.venv/bin/west build -p always --board rpi_pico2/rp2350a/m33
+    --build-dir /Users/anuj/Downloads/blinky2/blinky/build/primary
+  topdir: /Users/anuj/pico
+  version: 1.4.0
